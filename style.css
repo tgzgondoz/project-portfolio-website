@@ -178,21 +178,27 @@ nav {
     z-index: 1;
 }
 
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-}
-
+/* Hero Section Image */
 .hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    width: 350px; /* Adjust size as needed */
+    height: 350px; /* Must match width for perfect circle */
+    border-radius: 50%; /* This makes it circular */
+    object-fit: cover; /* Ensures image fills the circle */
+    border: 5px solid var(--primary-color); /* Optional colored border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* About Section Image */
+.about-image img {
+ width: 350px; /* Adjust size as needed */
+    height: 350px; /* Must match width for perfect circle */
+    border-radius: 50%; /* This makes it circular */
+    object-fit: cover; /* Ensures image fills the circle */
+    border: 5px solid var(--primary-color); /* Optional colored border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Make sure to remove any existing border-radius properties for these images */
 .hero-subtitle {
     font-size: 1.2rem;
     color: var(--text-light);
