@@ -27,6 +27,7 @@ p{
 }
 
 /* DESKTOP NAV */
+nav,
 .nav-links {
   display: flex;
 
@@ -37,7 +38,25 @@ nav {
  height: 17vh;
 }
 .nav-links {
-   gap:rem(2);
+   gap:2rem;
    list-style: none;
    font-size: 1.5rem; 
+}
+a{
+    color: black;
+    text-decoration: none;
+    text-decoration-color: white;
+}
+a:hover {
+  color: gray;
+  text-decoration: underline;
+  text-underline-position: 1rem;
+  text-decoration-color: rgb (181,181, 181);
+}
+
+.logo {
+  font-size: 2rem;
+}
+.logo:hover {
+    cursor: default;
 }
