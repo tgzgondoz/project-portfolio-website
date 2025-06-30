@@ -80,3 +80,65 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Add scroll event listener
 window.addEventListener('scroll', animateOnScroll);
+
+// Dark Mode Toggle
+const themeToggle = document.createElement('button');
+themeToggle.className = 'theme-toggle';
+themeToggle.innerHTML = '<i class="fas fa-sun"></i><i class="fas fa-moon"></i>';
+document.body.appendChild(themeToggle);
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+});
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+
+// Create Animated Stars
+function createStars() {
+    const count = 50;
+    const container = document.body;
+    
+    for (let i = 0; i < count; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        // Random properties
+        const size = Math.random() * 2 + 1;
+        const posX = Math.random() * window.innerWidth;
+        const posY = Math.random() * window.innerHeight;
+        const delay = Math.random() * 3;
+        const duration = Math.random() * 3 + 2;
+        
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${posX}px`;
+        star.style.top = `${posY}px`;
+        star.style.animationDelay = `${delay}s`;
+        star.style.animationDuration = `${duration}s`;
+        
+        container.appendChild(star);
+    }
+}
+
+// Only create stars in dark mode
+if (document.documentElement.getAttribute('data-theme') === 'dark') {
+    createStars();
+}
+
+// Recreate stars when theme changes
+const observer = new MutationObserver(() => {
+    document.querySelectorAll('.star').forEach(star => star.remove());
+    if (document.documentElement.getAttribute('data-theme') === 'dark') {
+        createStars();
+    }
+});
+
+observer.observe(document.documentElement, { 
+    attributes: true, 
+    attributeFilter: ['data-theme'] 
+});

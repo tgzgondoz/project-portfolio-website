@@ -613,3 +613,190 @@ footer {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
 }
+/* Updated Global Styles with Dark Mode */
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3a0ca3;
+    --accent-color: #f72585;
+    --dark-color: #1a1a2e;
+    --light-color: #f8f9fa;
+    --text-color: #333;
+    --text-light: #6c757d;
+    --section-bg: #ffffff;
+    --section-dark-bg: #f8f9fa;
+    --glow-color: rgba(67, 97, 238, 0.6);
+}
+
+[data-theme="dark"] {
+    --dark-color: #f8f9fa;
+    --light-color: #121212;
+    --text-color: #e0e0e0;
+    --text-light: #a0a0a0;
+    --section-bg: #1e1e1e;
+    --section-dark-bg: #121212;
+    --glow-color: rgba(113, 137, 255, 0.8);
+}
+
+/* Galaxy Star Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="10%" cy="15%" r="1" fill="white" opacity="0.8"/><circle cx="25%" cy="30%" r="1" fill="white" opacity="0.6"/><circle cx="75%" cy="25%" r="1.5" fill="white" opacity="0.9"/><circle cx="85%" cy="40%" r="1" fill="white" opacity="0.5"/><circle cx="15%" cy="70%" r="1" fill="white" opacity="0.7"/><circle cx="50%" cy="80%" r="1.2" fill="white" opacity="0.8"/><circle cx="90%" cy="85%" r="1" fill="white" opacity="0.6"/></svg>');
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+[data-theme="dark"] body::before {
+    opacity: 1;
+}
+
+/* Glowing Border Effects */
+.glow-border {
+    position: relative;
+}
+
+.glow-border::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: inherit;
+    z-index: -1;
+    background: linear-gradient(45deg, 
+        var(--primary-color), 
+        var(--accent-color), 
+        var(--primary-color));
+    background-size: 200% 200%;
+    animation: glowAnimation 3s ease infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glow-border:hover::after {
+    opacity: 0.7;
+}
+
+@keyframes glowAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Dark Mode Toggle */
+.theme-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+    transition: transform 0.5s ease;
+}
+
+[data-theme="dark"] .theme-toggle i.fa-sun {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle i.fa-moon {
+    display: block;
+}
+
+.theme-toggle i.fa-moon {
+    display: none;
+}
+
+[data-theme="light"] .theme-toggle i.fa-sun {
+    display: block;
+}
+
+/* Apply Glow Effect to Key Elements */
+nav, .project-card, .experience-item, .education-item, .contact-info-item {
+    position: relative;
+}
+
+nav::after, .project-card::after, .experience-item::after, 
+.education-item::after, .contact-info-item::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: inherit;
+    z-index: -1;
+    background: var(--glow-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+nav:hover::after, .project-card:hover::after, 
+.experience-item:hover::after, .education-item:hover::after, 
+.contact-info-item:hover::after {
+    opacity: 0.4;
+}
+
+/* Hero Image Glow Effect */
+.hero-image {
+    position: relative;
+}
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, 
+        var(--primary-color) 0%, 
+        transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+.hero-image:hover::before {
+    opacity: 0.3;
+}
+
+/* Animated Stars */
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+/* Add this to your existing styles */
