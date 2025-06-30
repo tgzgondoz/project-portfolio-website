@@ -11,6 +11,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         
+        // Close mobile menu if open
+        const menuLinks = document.querySelector('.menu-links');
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        if (menuLinks.classList.contains('open')) {
+            menuLinks.classList.remove('open');
+            hamburgerIcon.classList.remove('open');
+        }
+        
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
         
@@ -41,9 +49,9 @@ if (contactForm) {
     });
 }
 
-// Add animation on scroll
+// Animation on scroll
 function animateOnScroll() {
-    const elements = document.querySelectorAll('.section, .project-card, .experience-list li');
+    const elements = document.querySelectorAll('.section, .project-card, .experience-item, .education-item, .contact-info-item');
     
     elements.forEach(element => {
         const elementPosition = element.getBoundingClientRect().top;
@@ -58,7 +66,7 @@ function animateOnScroll() {
 
 // Set initial state for animation
 window.addEventListener('DOMContentLoaded', () => {
-    const elements = document.querySelectorAll('.section, .project-card, .experience-list li');
+    const elements = document.querySelectorAll('.section, .project-card, .experience-item, .education-item, .contact-info-item');
     
     elements.forEach(element => {
         element.style.opacity = '0';
