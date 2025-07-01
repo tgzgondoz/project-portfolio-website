@@ -1,14 +1,15 @@
 /* Global Styles */
 :root {
-    --primary-color: #4361ee;
-    --secondary-color: #3a0ca3;
-    --accent-color: #f72585;
-    --dark-color: #1a1a2e;
-    --light-color: #f8f9fa;
-    --text-color: #333;
-    --text-light: #6c757d;
-    --section-bg: #ffffff;
-    --section-dark-bg: #f8f9fa;
+    --primary-color: #067983;         /* blue-lagoon */
+    --secondary-color: #fe7601;       /* flush-orange */
+    --accent-color: #ce5218;          /* orange-roughy */
+    --dark-color: #062d31;            /* tiber */
+    --light-color: #dde3e2;           /* iron */
+    --text-color: #083344;            /* tiber (darker for text) */
+    --text-light: #607d85;            /* slate-gray */
+    --section-bg: #dde3e2;            /* iron */
+    --section-dark-bg: #084e53;       /* deep-sea green */
+    --glow-color: rgba(102, 185, 197, 0.6); /* fountain-blue */
 }
 
 * {
@@ -613,28 +614,30 @@ footer {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
 }
-/* Updated Global Styles with Dark Mode */
 :root {
-    --primary-color: #4361ee;
-    --secondary-color: #3a0ca3;
-    --accent-color: #f72585;
-    --dark-color: #1a1a2e;
-    --light-color: #f8f9fa;
-    --text-color: #333;
-    --text-light: #6c757d;
-    --section-bg: #ffffff;
-    --section-dark-bg: #f8f9fa;
-    --glow-color: rgba(67, 97, 238, 0.6);
+    --iron: #dde3e2;
+    --blue-lagoon: #067983;
+    --slate-gray: #607d85;
+    --tiber: #062d31;
+    --flush-orange: #fe7601;
+    --blue-stone: #006a6e;
+    --orange-roughy: #ce5218;
+    --deep-sea-green: #084e53;
+    --fountain-blue: #66b9c5;
+    --tiber-dark: #083344;
 }
 
 [data-theme="dark"] {
-    --dark-color: #f8f9fa;
-    --light-color: #121212;
-    --text-color: #e0e0e0;
-    --text-light: #a0a0a0;
-    --section-bg: #1e1e1e;
-    --section-dark-bg: #121212;
-    --glow-color: rgba(113, 137, 255, 0.8);
+    --iron: #181b1c;
+    --blue-lagoon: #1ba7b6;
+    --slate-gray: #a0a0a0;
+    --tiber: #f8f9fa;
+    --flush-orange: #ff9c47;
+    --blue-stone: #1e5a5c;
+    --orange-roughy: #ff7e3c;
+    --deep-sea-green: #121212;
+    --fountain-blue: #4fd0e6;
+    --tiber-dark: #e0e0e0;
 }
 
 /* Galaxy Star Background */
