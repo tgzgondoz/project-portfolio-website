@@ -13,17 +13,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
     
     <style>
-        /* Custom styles to complement Tailwind */
+        /* Custom styles with sky blue theme */
         .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
         
         .text-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -43,25 +41,78 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            bottom: -10px;
+            left: 20%;
+            border-radius: 2px;
+        }
+        
+        .skill-tag {
+            background: rgba(79, 172, 254, 0.1);
+            color: #2c5282;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #4facfe;
+            left: 0;
+            top: 5px;
+        }
+        
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: #e2e8f0;
+            left: 5px;
+            top: 20px;
+        }
+        
+        .timeline-item:last-child:after {
+            display: none;
+        }
     </style>
 </head>
 <body class="font-inter bg-gray-50 text-gray-800">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-lg z-50 py-4">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-md z-50 py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="text-2xl font-bold text-gray-800">Tatenda<span class="text-blue-600">.</span></div>
+            <div class="text-2xl font-bold text-gray-800">Tatenda<span class="text-sky-500">.</span></div>
             
             <!-- Desktop Navigation -->
             <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-300">About</a>
-                <a href="#experience" class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-300">Experience</a>
-                <a href="#education" class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-300">Education</a>
-                <a href="#projects" class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-300">Projects</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-300">Contact</a>
+                <a href="#about" class="text-gray-600 hover:text-sky-500 font-medium transition-colors duration-300">About</a>
+                <a href="#experience" class="text-gray-600 hover:text-sky-500 font-medium transition-colors duration-300">Experience</a>
+                <a href="#education" class="text-gray-600 hover:text-sky-500 font-medium transition-colors duration-300">Education</a>
+                <a href="#projects" class="text-gray-600 hover:text-sky-500 font-medium transition-colors duration-300">Projects</a>
+                <a href="#contact" class="text-gray-600 hover:text-sky-500 font-medium transition-colors duration-300">Contact</a>
             </div>
             
             <!-- CTA Button -->
-            <a href="#contact" class="hidden md:block bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl">
+            <a href="#contact" class="hidden md:block bg-sky-500 text-white px-6 py-2 rounded-full font-medium hover:bg-sky-600 transition-colors duration-300 shadow-md hover:shadow-lg">
                 Let's Talk
             </a>
             
@@ -74,11 +125,11 @@
         <!-- Mobile Navigation -->
         <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg">
             <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
-                <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium py-2" onclick="toggleMobileMenu()">About</a>
-                <a href="#experience" class="text-gray-600 hover:text-blue-600 font-medium py-2" onclick="toggleMobileMenu()">Experience</a>
-                <a href="#education" class="text-gray-600 hover:text-blue-600 font-medium py-2" onclick="toggleMobileMenu()">Education</a>
-                <a href="#projects" class="text-gray-600 hover:text-blue-600 font-medium py-2" onclick="toggleMobileMenu()">Projects</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium py-2" onclick="toggleMobileMenu()">Contact</a>
+                <a href="#about" class="text-gray-600 hover:text-sky-500 font-medium py-2" onclick="toggleMobileMenu()">About</a>
+                <a href="#experience" class="text-gray-600 hover:text-sky-500 font-medium py-2" onclick="toggleMobileMenu()">Experience</a>
+                <a href="#education" class="text-gray-600 hover:text-sky-500 font-medium py-2" onclick="toggleMobileMenu()">Education</a>
+                <a href="#projects" class="text-gray-600 hover:text-sky-500 font-medium py-2" onclick="toggleMobileMenu()">Projects</a>
+                <a href="#contact" class="text-gray-600 hover:text-sky-500 font-medium py-2" onclick="toggleMobileMenu()">Contact</a>
             </div>
         </div>
     </nav>
@@ -87,22 +138,22 @@
     <section class="min-h-screen flex items-center pt-20 pb-16 gradient-bg text-white">
         <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
             <div class="md:w-1/2 mb-12 md:mb-0">
-                <p class="text-blue-200 text-lg mb-4 font-light">Hello, I'm</p>
+                <p class="text-sky-100 text-lg mb-4 font-light">Hello, I'm</p>
                 <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">
-                    Tatenda <span class="text-gradient">Gondo</span>
+                    Tatenda <span class="text-white">Gondo</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-blue-200 mb-8 font-light">
+                <p class="text-xl md:text-2xl text-sky-100 mb-8 font-light">
                     Frontend Developer & UI/UX Enthusiast
                 </p>
-                <p class="text-blue-100 mb-8 text-lg leading-relaxed max-w-lg">
+                <p class="text-sky-100 mb-8 text-lg leading-relaxed max-w-lg">
                     I create beautiful, functional, and user-centered digital experiences. 
                     Passionate about modern web technologies and clean code.
                 </p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#projects" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold text-center hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+                    <a href="#projects" class="bg-white text-sky-600 px-8 py-3 rounded-full font-semibold text-center hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
                         View My Work
                     </a>
-                    <a href="#" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold text-center hover:bg-white hover:text-blue-600 transition-all duration-300">
+                    <a href="#" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold text-center hover:bg-white hover:text-sky-600 transition-all duration-300">
                         Download CV <i class="fas fa-download ml-2"></i>
                     </a>
                 </div>
@@ -123,10 +174,10 @@
             
             <div class="md:w-2/5 flex justify-center">
                 <div class="relative">
-                    <div class="w-80 h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
+                    <div class="w-80 h-80 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl">
                         <img src="assets/logo.jpg" alt="Tatenda Gondo" class="w-full h-full object-cover" />
                     </div>
-                    <div class="absolute -bottom-4 -right-4 bg-white text-blue-600 px-6 py-2 rounded-full shadow-lg font-semibold">
+                    <div class="absolute -bottom-4 -right-4 bg-white text-sky-600 px-6 py-2 rounded-full shadow-lg font-semibold">
                         Available for work
                     </div>
                 </div>
@@ -138,9 +189,10 @@
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <p class="text-blue-600 font-semibold mb-2">GET TO KNOW MORE</p>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">About Me</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-gray-800">About Me</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-6 text-lg">
+                    Get to know more about my background, skills, and what drives me as a developer.
+                </p>
             </div>
             
             <div class="flex flex-col lg:flex-row items-center gap-12">
@@ -149,7 +201,7 @@
                         <div class="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl hover-lift">
                             <img src="assets/logo.jpg" alt="About Tatenda Gondo" class="w-full h-full object-cover" />
                         </div>
-                        <div class="absolute -bottom-6 -left-6 bg-blue-600 text-white p-4 rounded-2xl shadow-lg">
+                        <div class="absolute -bottom-6 -left-6 bg-sky-500 text-white p-4 rounded-2xl shadow-lg">
                             <div class="text-center">
                                 <p class="text-2xl font-bold">2+</p>
                                 <p class="text-sm">Years Experience</p>
@@ -161,16 +213,16 @@
                 <div class="lg:w-3/5">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                         <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover-lift border border-gray-100">
-                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                                <i class="fas fa-briefcase text-blue-600 text-xl"></i>
+                            <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center mb-4">
+                                <i class="fas fa-briefcase text-sky-500 text-xl"></i>
                             </div>
                             <h3 class="text-xl font-semibold mb-2">Experience</h3>
                             <p class="text-gray-600">2+ years<br>Frontend Development</p>
                         </div>
                         
                         <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover-lift border border-gray-100">
-                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                                <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
+                            <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center mb-4">
+                                <i class="fas fa-graduation-cap text-sky-500 text-xl"></i>
                             </div>
                             <h3 class="text-xl font-semibold mb-2">Education</h3>
                             <p class="text-gray-600">B.Sc. IT Degree<br>M.Sc. Masters Degree</p>
@@ -183,12 +235,16 @@
                         My focus is on creating user-friendly interfaces with clean, efficient code.
                     </p>
                     
+                    <h3 class="text-xl font-semibold mb-4">Technical Skills</h3>
                     <div class="flex flex-wrap gap-3">
-                        <span class="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
-                        <span class="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-medium">React</span>
-                        <span class="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-medium">Tailwind CSS</span>
-                        <span class="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-medium">UI/UX Design</span>
-                        <span class="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-medium">Responsive Design</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">React</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Tailwind CSS</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">UI/UX Design</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Responsive Design</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">HTML5/CSS3</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Git</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium">Figma</span>
                     </div>
                 </div>
             </div>
@@ -199,50 +255,65 @@
     <section id="experience" class="py-20 bg-gray-900 text-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <p class="text-blue-400 font-semibold mb-2">EXPLORE MY</p>
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Experience</h2>
-                <div class="w-24 h-1 bg-blue-400 mx-auto"></div>
+                <h2 class="section-title text-4xl md:text-5xl font-bold">Experience</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto mt-6 text-lg">
+                    My professional journey and the roles that have shaped my expertise.
+                </p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <!-- Frontend Development Column -->
-                <div class="glass-effect rounded-2xl p-8 hover-lift">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-blue-400/20 rounded-xl flex items-center justify-center mr-4">
-                            <i class="fas fa-code text-blue-400 text-xl"></i>
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-12">
+                    <!-- Experience Item 1 -->
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/4">
+                            <div class="bg-sky-500 text-white p-4 rounded-2xl text-center shadow-lg">
+                                <p class="text-lg font-semibold">2022 - Present</p>
+                            </div>
                         </div>
-                        <h3 class="text-2xl font-semibold">Frontend Development</h3>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        <div class="border-l-2 border-blue-400 pl-6 py-2">
-                            <h4 class="text-xl font-semibold mb-1">Senior Frontend Developer</h4>
-                            <p class="text-blue-300 mb-2">Tech Solutions Inc. | 2022 - Present</p>
-                            <p class="text-gray-300">
+                        <div class="md:w-3/4 bg-gray-800 rounded-2xl p-8 shadow-lg hover-lift">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-code text-sky-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-semibold">Senior Frontend Developer</h3>
+                            </div>
+                            <p class="text-sky-300 mb-4 font-medium">Tech Solutions Inc.</p>
+                            <p class="text-gray-300 mb-4">
                                 Led a team of developers to create responsive web applications using React.js 
                                 and modern CSS frameworks. Improved application performance by 40%.
                             </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-gray-700 text-sky-300 px-3 py-1 rounded-full text-sm">React</span>
+                                <span class="bg-gray-700 text-sky-300 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                <span class="bg-gray-700 text-sky-300 px-3 py-1 rounded-full text-sm">Tailwind CSS</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- UI/UX Design Column -->
-                <div class="glass-effect rounded-2xl p-8 hover-lift">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-blue-400/20 rounded-xl flex items-center justify-center mr-4">
-                            <i class="fas fa-palette text-blue-400 text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold">UI/UX Design</h3>
                     </div>
                     
-                    <div class="space-y-6">
-                        <div class="border-l-2 border-blue-400 pl-6 py-2">
-                            <h4 class="text-xl font-semibold mb-1">UI/UX Designer</h4>
-                            <p class="text-blue-300 mb-2">Creative Minds Agency | 2018 - 2020</p>
-                            <p class="text-gray-300">
+                    <!-- Experience Item 2 -->
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/4">
+                            <div class="bg-sky-500 text-white p-4 rounded-2xl text-center shadow-lg">
+                                <p class="text-lg font-semibold">2018 - 2020</p>
+                            </div>
+                        </div>
+                        <div class="md:w-3/4 bg-gray-800 rounded-2xl p-8 shadow-lg hover-lift">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-palette text-sky-400 text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-semibold">UI/UX Designer</h3>
+                            </div>
+                            <p class="text-sky-300 mb-4 font-medium">Creative Minds Agency</p>
+                            <p class="text-gray-300 mb-4">
                                 Designed user-friendly interfaces and improved user experience for web 
                                 and mobile applications. Increased user satisfaction by 35%.
                             </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-gray-700 text-sky-300 px-3 py-1 rounded-full text-sm">Figma</span>
+                                <span class="bg-gray-700 text-sky-300 px-3 py-1 rounded-full text-sm">Adobe XD</span>
+                                <span class="bg-gray-700 text-sky-300 px-3 py-1 rounded-full text-sm">User Research</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -254,9 +325,10 @@
     <section id="education" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <p class="text-blue-600 font-semibold mb-2">MY ACADEMIC</p>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Education</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-gray-800">Education</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-6 text-lg">
+                    My academic background and continuous learning journey.
+                </p>
             </div>
             
             <div class="max-w-4xl mx-auto">
@@ -264,12 +336,12 @@
                     <!-- Education Item 1 -->
                     <div class="flex flex-col md:flex-row gap-6 bg-gray-50 rounded-2xl p-8 shadow-lg hover-lift border border-gray-100">
                         <div class="md:w-1/4 flex justify-center md:justify-start">
-                            <div class="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center">
-                                <i class="fas fa-graduation-cap text-blue-600 text-2xl"></i>
+                            <div class="w-20 h-20 bg-sky-100 rounded-2xl flex items-center justify-center">
+                                <i class="fas fa-graduation-cap text-sky-500 text-2xl"></i>
                             </div>
                         </div>
                         <div class="md:w-3/4">
-                            <span class="text-blue-600 font-semibold">2021 - 2025</span>
+                            <span class="text-sky-500 font-semibold">2021 - 2025</span>
                             <h3 class="text-2xl font-semibold mt-2 mb-3">BSIT05 Information Technology</h3>
                             <p class="text-gray-600 text-lg">Chinhoyi University of Technology</p>
                             <p class="text-gray-500 mt-3">
@@ -282,12 +354,12 @@
                     <!-- Education Item 2 -->
                     <div class="flex flex-col md:flex-row gap-6 bg-gray-50 rounded-2xl p-8 shadow-lg hover-lift border border-gray-100">
                         <div class="md:w-1/4 flex justify-center md:justify-start">
-                            <div class="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center">
-                                <i class="fas fa-graduation-cap text-blue-600 text-2xl"></i>
+                            <div class="w-20 h-20 bg-sky-100 rounded-2xl flex items-center justify-center">
+                                <i class="fas fa-graduation-cap text-sky-500 text-2xl"></i>
                             </div>
                         </div>
                         <div class="md:w-3/4">
-                            <span class="text-blue-600 font-semibold">2016 - 2020</span>
+                            <span class="text-sky-500 font-semibold">2016 - 2020</span>
                             <h3 class="text-2xl font-semibold mt-2 mb-3">B.Sc. Software Engineering</h3>
                             <p class="text-gray-600 text-lg">State University</p>
                             <p class="text-gray-500 mt-3">
@@ -305,9 +377,10 @@
     <section id="projects" class="py-20 bg-gray-900 text-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <p class="text-blue-400 font-semibold mb-2">BROWSE MY RECENT</p>
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Projects</h2>
-                <div class="w-24 h-1 bg-blue-400 mx-auto"></div>
+                <h2 class="section-title text-4xl md:text-5xl font-bold">Projects</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto mt-6 text-lg">
+                    A showcase of my recent work and personal projects.
+                </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -333,7 +406,7 @@
                                     <i class="fas fa-external-link-alt text-xl"></i>
                                 </a>
                             </div>
-                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">React</span>
+                            <span class="bg-sky-500 text-white px-3 py-1 rounded-full text-sm">React</span>
                         </div>
                     </div>
                 </div>
@@ -360,7 +433,7 @@
                                     <i class="fas fa-external-link-alt text-xl"></i>
                                 </a>
                             </div>
-                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
+                            <span class="bg-sky-500 text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
                         </div>
                     </div>
                 </div>
@@ -387,7 +460,7 @@
                                     <i class="fas fa-external-link-alt text-xl"></i>
                                 </a>
                             </div>
-                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">HTML/CSS</span>
+                            <span class="bg-sky-500 text-white px-3 py-1 rounded-full text-sm">HTML/CSS</span>
                         </div>
                     </div>
                 </div>
@@ -399,9 +472,10 @@
     <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <p class="text-blue-600 font-semibold mb-2">GET IN TOUCH</p>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Contact Me</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-gray-800">Contact Me</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-6 text-lg">
+                    Let's discuss your next project or just say hello.
+                </p>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
@@ -415,8 +489,8 @@
                     
                     <div class="space-y-6">
                         <div class="flex items-center bg-gray-50 p-6 rounded-2xl shadow-lg hover-lift">
-                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
-                                <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                            <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-sky-500 text-xl"></i>
                             </div>
                             <div>
                                 <h4 class="font-semibold text-lg">Email</h4>
@@ -425,8 +499,8 @@
                         </div>
                         
                         <div class="flex items-center bg-gray-50 p-6 rounded-2xl shadow-lg hover-lift">
-                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
-                                <i class="fab fa-linkedin-in text-blue-600 text-xl"></i>
+                            <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fab fa-linkedin-in text-sky-500 text-xl"></i>
                             </div>
                             <div>
                                 <h4 class="font-semibold text-lg">LinkedIn</h4>
@@ -442,7 +516,7 @@
                         <div>
                             <label class="block text-gray-700 mb-2 font-medium">Your Name</label>
                             <input type="text" 
-                                   class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-300"
                                    placeholder="Enter your name"
                                    required>
                         </div>
@@ -450,7 +524,7 @@
                         <div>
                             <label class="block text-gray-700 mb-2 font-medium">Your Email</label>
                             <input type="email" 
-                                   class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-300"
                                    placeholder="Enter your email"
                                    required>
                         </div>
@@ -458,13 +532,13 @@
                         <div>
                             <label class="block text-gray-700 mb-2 font-medium">Your Message</label>
                             <textarea 
-                                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 h-32"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-300 h-32"
                                 placeholder="Enter your message"
                                 required></textarea>
                         </div>
                         
                         <button type="submit" 
-                                class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl">
+                                class="w-full bg-sky-500 text-white py-3 rounded-xl font-semibold hover:bg-sky-600 transition-colors duration-300 shadow-lg hover:shadow-xl">
                             Send Message <i class="fas fa-paper-plane ml-2"></i>
                         </button>
                     </form>
@@ -478,7 +552,7 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 <div>
-                    <div class="text-2xl font-bold mb-4">Tatenda<span class="text-blue-400">.</span></div>
+                    <div class="text-2xl font-bold mb-4">Tatenda<span class="text-sky-400">.</span></div>
                     <p class="text-gray-400">
                         Creating digital experiences that make a difference.
                     </p>
@@ -491,13 +565,13 @@
                 </div>
                 
                 <div class="flex justify-center md:justify-end space-x-4">
-                    <a href="https://github.com/tgzgondoz" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-300">
+                    <a href="https://github.com/tgzgondoz" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sky-500 transition-colors duration-300">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-300">
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sky-500 transition-colors duration-300">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-300">
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-sky-500 transition-colors duration-300">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
