@@ -83,7 +83,7 @@ footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:v
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top">tatenda<span>@</span>dev</a>
+    <a class="brand" href="#top">OneGondo<span>@</span>dev</a>
     <nav aria-label="Primary">
       <a href="#stack">stack</a>
       <a href="#experience">experience</a>
@@ -104,7 +104,7 @@ footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:v
       <div class="btns">
         <a class="btn primary" href="#projects">View projects</a>
         <a class="btn" href="https://github.com/tgzgondoz" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="www.linkedin.com/in/tatenda-gondo-5203651ab" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="assets/Tatenda-Gondo-CV.pdf" download>Download CV</a>
       </div>
     </div>
@@ -137,19 +137,26 @@ footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:v
 
   <section class="block" id="experience">
     <h2><em>~/</em>experience</h2>
-    <p class="sub">Verify titles, companies and dates match your LinkedIn profile.</p>
+    <p class="sub">Hands‑on roles across frontend development and IT support.</p>
     <div class="tl">
       <article class="job">
-        <div class="when">2022 to present</div>
-        <h3>Senior Frontend Developer</h3>
-        <div class="org">Tech Solutions Inc.</div>
-        <p>Lead frontend development, mentor junior developers, and design scalable React architecture.</p>
-        <div class="chips"><span>React</span><span>TypeScript</span><span>Next.js</span><span>Tailwind CSS</span></div>
+        <div class="when" id="kiwa-duration">Apr 2026 – present</div>
+        <h3>Lead Developer</h3>
+        <div class="org">KiwaConnect Pvt Ltd · Full-time</div>
+        <p>Lead frontend architecture, mentor developers, and build scalable React/Next.js applications. Drive code quality and performance across the product.</p>
+        <div class="chips"><span>React</span><span>Next.js</span><span>TypeScript</span><span>Tailwind CSS</span></div>
       </article>
       <article class="job">
-        <div class="when">2020 to 2022</div>
+        <div class="when">Feb 2024 – Dec 2024 · 11 mos</div>
+        <h3>Information Technology Intern</h3>
+        <div class="org">Chinhoyi University of Technology · Internship</div>
+        <p>Provided on‑site IT support, maintained lab equipment, and assisted with network and software troubleshooting. Based in Chinhoyi, Mashonaland West.</p>
+        <div class="chips"><span>IT Support</span><span>Networking</span><span>Hardware</span><span>Troubleshooting</span></div>
+      </article>
+      <article class="job">
+        <div class="when">Mar 2021 – Nov 2025</div>
         <h3>Frontend Developer</h3>
-        <div class="org">Digital Agency</div>
+        <div class="org">Undergrade Student Chinhoyi University of Technology</div>
         <p>Built responsive web applications and implemented UI components from design files, working closely with designers.</p>
         <div class="chips"><span>JavaScript</span><span>React</span><span>SCSS</span><span>Figma</span></div>
       </article>
@@ -202,7 +209,7 @@ footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:v
       <p class="sub" style="margin-bottom:0">Available for freelance projects and full-time roles. Email is the fastest way to reach me.</p>
       <ul>
         <li><b>email</b><a href="mailto:tgzgondozz@gmail.com">tgzgondozz@gmail.com</a></li>
-        <li><b>linkedin</b><a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" target="_blank" rel="noopener">linkedin.com/in/YOUR-LINKEDIN-HANDLE</a></li>
+        <li><b>linkedin</b><a href="www.linkedin.com/in/tatenda-gondo-5203651ab" target="_blank" rel="noopener">www.linkedin.com/in/tatenda-gondo-5203651ab</a></li>
         <li><b>github</b><a href="https://github.com/tgzgondoz" target="_blank" rel="noopener">github.com/tgzgondoz</a></li>
       </ul>
     </div>
@@ -211,6 +218,40 @@ footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:v
 </main>
 
 <footer>&copy; <span id="yr">@2026</span> Tatenda Gondo</footer>
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script>
+  // Set current year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Real-time KiwaConnect duration (Apr 2026 to present)
+  (function updateKiwaDuration() {
+    const startDate = new Date(2026, 3, 1); // April 1, 2026
+    const now = new Date();
+
+    // Calculate full months difference
+    let months = (now.getFullYear() - startDate.getFullYear()) * 12;
+    months += now.getMonth() - startDate.getMonth();
+
+    // Adjust if the current day is before the start day of the month (for accuracy)
+    if (now.getDate() < startDate.getDate()) {
+      months--;
+    }
+
+    // Ensure no negative months (if start date is in the future)
+    months = Math.max(0, months);
+
+    // Build duration text
+    let durationText = '';
+    if (months === 1) {
+      durationText = '1 mo';
+    } else {
+      durationText = months + ' mos';
+    }
+
+    const whenElement = document.getElementById('kiwa-duration');
+    if (whenElement) {
+      whenElement.textContent = 'Apr 2026 – present · ' + durationText;
+    }
+  })();
+</script>
 </body>
 </html>
