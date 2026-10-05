@@ -75,7 +75,6 @@ h2 em{font-style:normal;color:var(--green)}
 .contact ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px;font:400 14.5px var(--mono)}
 .contact b{display:inline-block;min-width:92px;color:var(--muted);font-weight:400}
 footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:var(--muted)}
-/* Profile image enhancements */
 .profile-wrap{display:flex;align-items:center;gap:24px;margin-bottom:20px;flex-wrap:wrap}
 .profile-pic{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid var(--blue);box-shadow:0 8px 20px rgba(0,0,0,.4);background:var(--surface);transition:transform .2s ease}
 .profile-pic:hover{transform:scale(1.02)}
@@ -102,7 +101,6 @@ footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:v
 
   <section class="hero">
     <div>
-      <!-- Profile image added here -->
       <div class="profile-wrap">
         <img class="profile-pic" src="https://ui-avatars.com/api/?name=Tatenda+Gondo&size=96&background=58a6ff&color=fff&bold=true&length=2" alt="Tatenda Gondo profile photo" loading="lazy">
         <div class="profile-text">
@@ -116,7 +114,7 @@ footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:v
         <a class="btn primary" href="#projects">View projects</a>
         <a class="btn" href="https://github.com/tgzgondoz" target="_blank" rel="noopener">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/tatenda-gondo-5203651ab" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="assets/Tatenda-Gondo-CV.pdf" download>Download CV</a>
+        <a class="btn" href="Tatenda Gondo CV.pdf" download>Download CV</a>
       </div>
     </div>
     <div class="term" aria-label="Profile summary">
@@ -220,8 +218,10 @@ footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:v
       <p class="sub" style="margin-bottom:0">Available for freelance projects and full-time roles. Email is the fastest way to reach me.</p>
       <ul>
         <li><b>email</b><a href="mailto:tgzgondozz@gmail.com">tgzgondozz@gmail.com</a></li>
-        <li><b>linkedin</b><a href="https://www.linkedin.com/in/tatenda-gondo-5203651ab" target="_blank" rel="noopener">linkedin.com/in/tatenda-gondo-5203651ab</a></li>
+        <li><b>phone</b><a href="tel:+263783242506">+263 783 242 506</a></li>
+        <li><b>linkedin</b><a href="https://www.linkedin.com/in/tatenda-gondo-5203651ab/" target="_blank" rel="noopener">linkedin.com/in/tatenda-gondo-5203651ab</a></li>
         <li><b>github</b><a href="https://github.com/tgzgondoz" target="_blank" rel="noopener">github.com/tgzgondoz</a></li>
+        <li><b>portfolio</b><a href="https://project-portfolio-website-five.vercel.app/" target="_blank" rel="noopener">project-portfolio-website-five.vercel.app</a></li>
       </ul>
     </div>
   </section>
@@ -230,34 +230,16 @@ footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:v
 
 <footer>&copy; <span id="yr">@2026</span> Tatenda Gondo</footer>
 <script>
-  // Set current year
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Real-time KiwaConnect duration (Apr 2026 to present)
   (function updateKiwaDuration() {
-    const startDate = new Date(2026, 3, 1); // April 1, 2026
+    const startDate = new Date(2026, 3, 1);
     const now = new Date();
-
-    // Calculate full months difference
     let months = (now.getFullYear() - startDate.getFullYear()) * 12;
     months += now.getMonth() - startDate.getMonth();
-
-    // Adjust if the current day is before the start day of the month (for accuracy)
-    if (now.getDate() < startDate.getDate()) {
-      months--;
-    }
-
-    // Ensure no negative months (if start date is in the future)
+    if (now.getDate() < startDate.getDate()) { months--; }
     months = Math.max(0, months);
-
-    // Build duration text
-    let durationText = '';
-    if (months === 1) {
-      durationText = '1 mo';
-    } else {
-      durationText = months + ' mos';
-    }
-
+    let durationText = months === 1 ? '1 mo' : months + ' mos';
     const whenElement = document.getElementById('kiwa-duration');
     if (whenElement) {
       whenElement.textContent = 'Apr 2026 – present · ' + durationText;
