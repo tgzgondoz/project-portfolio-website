@@ -23,7 +23,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetElement = document.querySelector(targetId);
         
         window.scrollTo({
-            top: targetElement.offsetTop - 80,
+            top: targetElement.offsetTop - 86,
             behavior: 'smooth'
         });
     });
