@@ -1,839 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tatenda Gondo | Frontend Developer Portfolio</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* Professional Dark Theme */
-        :root {
-            --primary: #3b82f6;
-            --primary-dark: #2563eb;
-            --accent: #8b5cf6;
-            --dark-bg: #0f172a;
-            --dark-surface: #1e293b;
-            --dark-border: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-        }
-        
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, #1e293b 100%);
-        }
-        
-        .card-glass {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-        }
-        
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border-color: rgba(59, 130, 246, 0.2);
-        }
-        
-        .section-title {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-        
-        .skill-tag {
-            background: rgba(59, 130, 246, 0.1);
-            color: #93c5fd;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .skill-tag:hover {
-            background: rgba(59, 130, 246, 0.2);
-            border-color: var(--primary);
-        }
-        
-        .timeline-dot {
-            width: 16px;
-            height: 16px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 50%;
-            position: absolute;
-            left: -8px;
-            top: 6px;
-        }
-        
-        .timeline-line {
-            position: absolute;
-            width: 2px;
-            height: calc(100% - 20px);
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
-            left: 0;
-            top: 24px;
-            opacity: 0.3;
-        }
-        
-        .glow-effect {
-            position: relative;
-        }
-        
-        .glow-effect:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            animation: glow-line 3s ease-in-out infinite;
-        }
-        
-        @keyframes glow-line {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-        
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .typewriter {
-            overflow: hidden;
-            border-right: 2px solid var(--primary);
-            white-space: nowrap;
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--primary) }
-        }
-        
-        .gradient-border {
-            position: relative;
-            border-radius: 16px;
-        }
-        
-        .gradient-border:before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: 17px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .gradient-border:hover:before {
-            opacity: 1;
-        }
-        
-        .particle {
-            position: absolute;
-            background: var(--primary);
-            border-radius: 50%;
-            opacity: 0.1;
-            pointer-events: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tatenda Gondo | Frontend Developer</title>
+<meta name="description" content="Tatenda Gondo is a frontend developer in Harare, Zimbabwe, building fast, accessible web applications with React, Next.js and TypeScript.">
+<meta property="og:title" content="Tatenda Gondo | Frontend Developer">
+<meta property="og:description" content="Frontend developer building fast, accessible web applications with React, Next.js and TypeScript.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--raised:#1c2330;--line:#30363d;--ink:#e6edf3;--muted:#8b949e;--blue:#58a6ff;--green:#3fb950;--amber:#d29922;--mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16.5px/1.65 'IBM Plex Sans',system-ui,sans-serif}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+.mono{font-family:var(--mono)}
+header.nav{border-bottom:1px solid var(--line);background:rgba(13,17,23,.92);position:sticky;top:0;z-index:10;backdrop-filter:blur(8px)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+.nav .brand{font:700 15px var(--mono);color:var(--ink)}
+.nav .brand span{color:var(--green)}
+.nav nav{display:flex;gap:22px;font:500 13.5px var(--mono)}
+.nav nav a{color:var(--muted)}
+.nav nav a:hover{color:var(--ink);text-decoration:none}
+.hero{padding:56px 0 24px;display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center}
+.hero h1{font-size:44px;line-height:1.1;margin:0 0 10px;font-weight:600;letter-spacing:-.02em}
+.hero .role{font:500 18px var(--mono);color:var(--blue);margin:0 0 16px}
+.hero p.lead{color:var(--muted);max-width:46ch;margin:0 0 22px}
+.status{display:inline-flex;align-items:center;gap:8px;font:500 13px var(--mono);color:var(--green);border:1px solid #23472d;background:#0f2417;border-radius:999px;padding:4px 12px;margin-bottom:18px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--green);display:block}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{font:500 14px var(--mono);padding:9px 16px;border-radius:6px;border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+.btn:hover{border-color:var(--muted);text-decoration:none}
+.btn.primary{background:#238636;border-color:#2ea043;color:#fff}
+.btn.primary:hover{background:#2ea043}
+.term{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.35)}
+.term .bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:var(--raised);border-bottom:1px solid var(--line)}
+.term .bar i{width:11px;height:11px;border-radius:50%;background:#3d444d;display:block}
+.term .bar span{margin-left:8px;font:400 12px var(--mono);color:var(--muted)}
+.term pre{margin:0;padding:18px;font:400 13.5px/1.7 var(--mono);overflow-x:auto;color:var(--ink)}
+.p{color:var(--green)}.k{color:#79c0ff}.s{color:#a5d6ff}.c{color:var(--muted)}
+section.block{padding:44px 0 8px}
+h2{font:700 20px var(--mono);margin:0 0 6px}
+h2 em{font-style:normal;color:var(--green)}
+.sub{color:var(--muted);margin:0 0 22px;font-size:15.5px}
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.stack div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px}
+.stack h3{font:500 12.5px var(--mono);color:var(--muted);margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font:400 13px var(--mono);background:var(--raised);border:1px solid var(--line);border-radius:5px;padding:2px 9px}
+.tl{border-left:2px solid var(--line);margin-left:6px}
+.job{position:relative;padding:0 0 28px 26px}
+.job:before{content:'';position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--blue)}
+.job .when{font:400 13px var(--mono);color:var(--amber)}
+.job h3{font-size:18px;margin:2px 0 0;font-weight:600}
+.job .org{color:var(--muted);margin:0 0 8px;font-size:15.5px}
+.job p{margin:0 0 10px;max-width:68ch}
+.repos{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:16px}
+.repo{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.repo img{width:100%;height:160px;object-fit:cover;display:block;background:var(--raised);border-bottom:1px solid var(--line)}
+.repo .body{padding:16px;display:flex;flex-direction:column;flex:1}
+.repo h3{font:700 16px var(--mono);margin:0 0 6px;color:var(--blue)}
+.repo p{margin:0 0 14px;color:var(--muted);font-size:15.5px}
+.repo .meta{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font:400 13px var(--mono)}
+.lang{display:inline-flex;align-items:center;gap:6px;color:var(--muted)}
+.lang i{width:10px;height:10px;border-radius:50%;display:block}
+.repo .links{display:flex;gap:14px}
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:26px}
+.contact ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px;font:400 14.5px var(--mono)}
+.contact b{display:inline-block;min-width:92px;color:var(--muted);font-weight:400}
+footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:var(--muted)}
+@media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:36px}.hero h1{font-size:36px}.nav nav{gap:14px;font-size:12.5px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head>
-<body class="font-inter bg-gradient-to-br from-slate-900 to-slate-950">
-    <!-- Navigation -->
-    <nav class="fixed w-full glass-effect z-50 py-4 bg-slate-900/80 backdrop-blur-xl border-b border-slate-800">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="text-2xl font-bold">
-                <span class="text-white">Tatenda</span>
-                <span class="gradient-text">.</span>
-            </div>
-            
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-slate-300 hover:text-white hover:gradient-text font-medium transition-all duration-300 group">
-                    <span class="relative">
-                        About
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
-                    </span>
-                </a>
-                <a href="#experience" class="text-slate-300 hover:text-white hover:gradient-text font-medium transition-all duration-300 group">
-                    <span class="relative">
-                        Experience
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
-                    </span>
-                </a>
-                <a href="#projects" class="text-slate-300 hover:text-white hover:gradient-text font-medium transition-all duration-300 group">
-                    <span class="relative">
-                        Projects
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
-                    </span>
-                </a>
-                <a href="#contact" class="text-slate-300 hover:text-white hover:gradient-text font-medium transition-all duration-300 group">
-                    <span class="relative">
-                        Contact
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
-                    </span>
-                </a>
-            </div>
-            
-            <!-- CTA Button -->
-            <a href="#contact" class="hidden md:block relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 group">
-                <span class="relative z-10">Let's Connect</span>
-                <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </a>
-            
-            <!-- Mobile menu button -->
-            <button class="md:hidden text-slate-300 hover:text-white focus:outline-none transition-colors" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-        </div>
-        
-        <!-- Mobile Navigation -->
-        <div id="mobileMenu" class="md:hidden hidden absolute top-full left-0 right-0 bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 shadow-2xl">
-            <div class="container mx-auto px-6 py-6 flex flex-col space-y-4">
-                <a href="#about" class="text-slate-300 hover:text-white hover:gradient-text font-medium py-3 border-b border-slate-800" onclick="toggleMobileMenu()">About</a>
-                <a href="#experience" class="text-slate-300 hover:text-white hover:gradient-text font-medium py-3 border-b border-slate-800" onclick="toggleMobileMenu()">Experience</a>
-                <a href="#projects" class="text-slate-300 hover:text-white hover:gradient-text font-medium py-3 border-b border-slate-800" onclick="toggleMobileMenu()">Projects</a>
-                <a href="#contact" class="text-slate-300 hover:text-white hover:gradient-text font-medium py-3" onclick="toggleMobileMenu()">Contact</a>
-            </div>
-        </div>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">tatenda<span>@</span>dev</a>
+    <nav aria-label="Primary">
+      <a href="#stack">stack</a>
+      <a href="#experience">experience</a>
+      <a href="#projects">projects</a>
+      <a href="#contact">contact</a>
     </nav>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center pt-24 pb-16 relative overflow-hidden">
-        <!-- Background Particles -->
-        <div id="particles-container" class="absolute inset-0"></div>
-        
-        <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center justify-between relative z-10">
-            <div class="lg:w-1/2 mb-12 lg:mb-0">
-                <p class="text-slate-400 text-lg mb-4 font-light tracking-wider">HELLO, I'M</p>
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                    <span class="text-white">Tatenda</span> 
-                    <span class="gradient-text block">Gondo</span>
-                </h1>
-                <div class="typewriter-container mb-8">
-                    <p class="text-2xl md:text-3xl text-slate-300 font-medium">
-                        <span class="gradient-text">Frontend Developer</span> & UI/UX Specialist
-                    </p>
-                </div>
-                <p class="text-slate-400 mb-10 text-lg leading-relaxed max-w-xl">
-                    Crafting exceptional digital experiences with modern web technologies. 
-                    Passionate about clean code, intuitive design, and innovative solutions.
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#projects" class="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-center hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 group">
-                        <span class="relative z-10">Explore My Work</span>
-                        <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </a>
-                    <a href="#" class="border border-slate-700 text-slate-300 px-8 py-4 rounded-xl font-semibold text-center hover:bg-slate-800/50 hover:border-slate-600 hover:text-white transition-all duration-300">
-                        Download CV <i class="fas fa-download ml-2"></i>
-                    </a>
-                </div>
-                
-                <!-- Social Links -->
-                <div class="flex space-x-4 mt-10">
-                    <a href="https://github.com/tgzgondoz" class="w-12 h-12 bg-slate-800/50 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 transition-all duration-300 border border-slate-700 hover:border-transparent group">
-                        <i class="fab fa-github text-xl group-hover:text-white"></i>
-                    </a>
-                    <a href="#" class="w-12 h-12 bg-slate-800/50 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 transition-all duration-300 border border-slate-700 hover:border-transparent group">
-                        <i class="fab fa-linkedin-in text-xl group-hover:text-white"></i>
-                    </a>
-                    <a href="#" class="w-12 h-12 bg-slate-800/50 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 transition-all duration-300 border border-slate-700 hover:border-transparent group">
-                        <i class="fab fa-twitter text-xl group-hover:text-white"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="lg:w-2/5 flex justify-center relative">
-                <div class="relative">
-                    <div class="w-80 h-80 rounded-2xl overflow-hidden border-4 border-slate-800/50 shadow-2xl floating">
-                        <img src="assets/logo.jpg" alt="Tatenda Gondo" class="w-full h-full object-cover" />
-                    </div>
-                    <div class="absolute -bottom-6 -right-6 bg-gradient-to-br from-blue-600 to-purple-600 text-white p-6 rounded-2xl shadow-2xl">
-                        <div class="text-center">
-                            <p class="text-3xl font-bold">2+</p>
-                            <p class="text-sm opacity-90">Years Experience</p>
-                        </div>
-                    </div>
-                    <div class="absolute -top-6 -left-6 bg-slate-900/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl border border-slate-800">
-                        <div class="flex items-center">
-                            <div class="w-3 h-3 rounded-full bg-green-500 mr-2 animate-pulse"></div>
-                            <span class="text-sm font-medium">Available for work</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<main class="wrap" id="top">
+
+  <section class="hero">
+    <div>
+      <div class="status"><i></i>Open to freelance and full-time roles</div>
+      <h1>Tatenda Gondo</h1>
+      <p class="role">Frontend Developer</p>
+      <p class="lead">I build fast, accessible web applications with React, Next.js and TypeScript. Based in Harare, Zimbabwe, working with teams and clients anywhere.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="https://github.com/tgzgondoz" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="assets/Tatenda-Gondo-CV.pdf" download>Download CV</a>
+      </div>
+    </div>
+    <div class="term" aria-label="Profile summary">
+      <div class="bar"><i></i><i></i><i></i><span>~/tatenda</span></div>
+<pre><span class="p">$</span> cat profile.json
+{
+  <span class="k">"name"</span>: <span class="s">"Tatenda Gondo"</span>,
+  <span class="k">"role"</span>: <span class="s">"Frontend Developer"</span>,
+  <span class="k">"location"</span>: <span class="s">"Harare, ZW"</span>,
+  <span class="k">"stack"</span>: [
+    <span class="s">"React"</span>, <span class="s">"Next.js"</span>,
+    <span class="s">"TypeScript"</span>, <span class="s">"Tailwind CSS"</span>
+  ],
+  <span class="k">"openToWork"</span>: <span class="s">true</span>
+}
+<span class="p">$</span> <span class="c"># deployed on Vercel</span></pre>
+    </div>
+  </section>
+
+  <section class="block" id="stack">
+    <h2><em>~/</em>stack</h2>
+    <p class="sub">Tools I use day to day.</p>
+    <div class="stack">
+      <div><h3>languages</h3><div class="chips"><span>JavaScript</span><span>TypeScript</span><span>HTML</span><span>CSS / SCSS</span></div></div>
+      <div><h3>frameworks</h3><div class="chips"><span>React</span><span>Next.js</span><span>Tailwind CSS</span></div></div>
+      <div><h3>tooling</h3><div class="chips"><span>Git</span><span>GitHub</span><span>Vercel</span><span>Figma</span></div></div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <h2><em>~/</em>experience</h2>
+    <p class="sub">Verify titles, companies and dates match your LinkedIn profile.</p>
+    <div class="tl">
+      <article class="job">
+        <div class="when">2022 to present</div>
+        <h3>Senior Frontend Developer</h3>
+        <div class="org">Tech Solutions Inc.</div>
+        <p>Lead frontend development, mentor junior developers, and design scalable React architecture.</p>
+        <div class="chips"><span>React</span><span>TypeScript</span><span>Next.js</span><span>Tailwind CSS</span></div>
+      </article>
+      <article class="job">
+        <div class="when">2020 to 2022</div>
+        <h3>Frontend Developer</h3>
+        <div class="org">Digital Agency</div>
+        <p>Built responsive web applications and implemented UI components from design files, working closely with designers.</p>
+        <div class="chips"><span>JavaScript</span><span>React</span><span>SCSS</span><span>Figma</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <h2><em>~/</em>projects</h2>
+    <p class="sub">Source and live demos for each.</p>
+    <div class="repos">
+      <article class="repo">
+        <img src="assets/DriverEasy Car Rental.png" alt="DriverEasy Car Rental app screenshot" loading="lazy">
+        <div class="body">
+          <h3>driver-easy-car-rental</h3>
+          <p>Car rental platform with online booking and an admin dashboard.</p>
+          <div class="meta">
+            <span class="lang"><i style="background:#61dafb"></i>React</span>
+            <span class="links"><a href="https://car-rental-app-xi-sage.vercel.app/" target="_blank" rel="noopener">demo</a><a href="https://github.com/tgzgondoz/car-rental-app" target="_blank" rel="noopener">code</a></span>
+          </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 relative">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950"></div>
-        <div class="container mx-auto px-6 relative">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold mb-6">About Me</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto text-lg">
-                    Passionate developer dedicated to creating exceptional digital experiences
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-2">
-                    <div class="card-glass p-8 card-hover">
-                        <h3 class="text-2xl font-bold mb-6 gradient-text">My Journey</h3>
-                        <p class="text-slate-300 mb-6 leading-relaxed">
-                            I'm a passionate Frontend Developer with expertise in building modern, responsive 
-                            web applications. My journey began with a curiosity for how things work on the web, 
-                            and has evolved into a career dedicated to creating exceptional user experiences.
-                        </p>
-                        <p class="text-slate-300 leading-relaxed">
-                            I believe in writing clean, maintainable code and staying up-to-date with the latest 
-                            web technologies. My focus is on creating intuitive interfaces that not only look 
-                            beautiful but also provide seamless functionality.
-                        </p>
-                    </div>
-                    
-                    <div class="mt-8 grid md:grid-cols-2 gap-6">
-                        <div class="card-glass p-6 card-hover">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center mb-4">
-                                <i class="fas fa-briefcase text-blue-400 text-xl"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold mb-2">Experience</h4>
-                            <p class="text-slate-400">2+ years in frontend development with modern frameworks</p>
-                        </div>
-                        
-                        <div class="card-glass p-6 card-hover">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center mb-4">
-                                <i class="fas fa-code text-purple-400 text-xl"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold mb-2">Projects</h4>
-                            <p class="text-slate-400">10+ successful projects delivered to clients</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="lg:col-span-1">
-                    <div class="card-glass p-8 card-hover h-full">
-                        <h3 class="text-2xl font-bold mb-6 gradient-text">Technical Stack</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">JavaScript/TypeScript</span>
-                                    <span class="text-blue-400">95%</span>
-                                </div>
-                                <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-blue-600 to-purple-600 rounded-full" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">React & Next.js</span>
-                                    <span class="text-blue-400">90%</span>
-                                </div>
-                                <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-blue-600 to-purple-600 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">UI/UX Design</span>
-                                    <span class="text-blue-400">85%</span>
-                                </div>
-                                <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-blue-600 to-purple-600 rounded-full" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-slate-300">Tailwind CSS</span>
-                                    <span class="text-blue-400">95%</span>
-                                </div>
-                                <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-blue-600 to-purple-600 rounded-full" style="width: 95%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </article>
+      <article class="repo">
+        <img src="assets/Game Collection 2024.png" alt="Game Collection 2024 screenshot" loading="lazy">
+        <div class="body">
+          <h3>game-collection-2024</h3>
+          <p>Game discovery site with search, filtering and detail pages.</p>
+          <div class="meta">
+            <span class="lang"><i style="background:#f1e05a"></i>JavaScript</span>
+            <span class="links"><a href="https://one-gondo.vercel.app" target="_blank" rel="noopener">demo</a><a href="https://github.com/tgzgondoz/one-gondo" target="_blank" rel="noopener">code</a></span>
+          </div>
         </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-gradient-to-b from-slate-950 to-slate-900">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold mb-6">Experience</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto text-lg">
-                    Professional journey and career milestones
-                </p>
-            </div>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="relative">
-                    <!-- Timeline line -->
-                    <div class="hidden md:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-purple-600 opacity-30"></div>
-                    
-                    <div class="space-y-12">
-                        <!-- Experience Item 1 -->
-                        <div class="relative">
-                            <div class="md:flex gap-8">
-                                <div class="md:w-1/4 mb-4 md:mb-0">
-                                    <div class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold">
-                                        <p>2022 - Present</p>
-                                    </div>
-                                </div>
-                                <div class="md:w-3/4 card-glass p-8 card-hover relative">
-                                    <div class="absolute -left-4 top-8 w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center border-2 border-slate-800">
-                                        <div class="w-4 h-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600"></div>
-                                    </div>
-                                    <h3 class="text-2xl font-bold mb-3">Senior Frontend Developer</h3>
-                                    <p class="text-blue-400 mb-4 font-medium">Tech Solutions Inc.</p>
-                                    <p class="text-slate-400 mb-6">
-                                        Leading frontend development initiatives, mentoring junior developers, 
-                                        and architecting scalable solutions using React.js and modern web technologies.
-                                    </p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="skill-tag px-4 py-2 rounded-full text-sm">React</span>
-                                        <span class="skill-tag px-4 py-2 rounded-full text-sm">TypeScript</span>
-                                        <span class="skill-tag px-4 py-2 rounded-full text-sm">Next.js</span>
-                                        <span class="skill-tag px-4 py-2 rounded-full text-sm">Tailwind</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Experience Item 2 -->
-                        <div class="relative">
-                            <div class="md:flex gap-8">
-                                <div class="md:w-1/4 mb-4 md:mb-0">
-                                    <div class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold">
-                                        <p>2020 - 2022</p>
-                                    </div>
-                                </div>
-                                <div class="md:w-3/4 card-glass p-8 card-hover relative">
-                                    <div class="absolute -left-4 top-8 w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center border-2 border-slate-800">
-                                        <div class="w-4 h-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600"></div>
-                                    </div>
-                                    <h3 class="text-2xl font-bold mb-3">Frontend Developer</h3>
-                                    <p class="text-blue-400 mb-4 font-medium">Digital Agency</p>
-                                    <p class="text-slate-400 mb-6">
-                                        Developed responsive web applications, collaborated with design teams, 
-                                        and implemented pixel-perfect UI components across multiple projects.
-                                    </p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="skill-tag px-4 py-2 rounded-full text-sm">JavaScript</span>
-                                        <span class="skill-tag px-4 py-2 rounded-full text-sm">React</span>
-                                        <span class="skill-tag px-4 py-2 rounded-full text-sm">SCSS</span>
-                                        <span class="skill-tag px-4 py-2 rounded-full text-sm">Figma</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </article>
+      <article class="repo">
+        <img src="assets/Personal Portfolio.png" alt="Developer portfolio screenshot" loading="lazy">
+        <div class="body">
+          <h3>developer-portfolio</h3>
+          <p>Responsive, accessible portfolio site, the one you are reading.</p>
+          <div class="meta">
+            <span class="lang"><i style="background:#e34c26"></i>HTML / Tailwind</span>
+            <span class="links"><a href="https://github.com/tgzgondoz" target="_blank" rel="noopener">code</a></span>
+          </div>
         </div>
-    </section>
+      </article>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 relative">
-        <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900"></div>
-        <div class="container mx-auto px-6 relative">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold mb-6">Featured Projects</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto text-lg">
-                    Showcase of my recent work and creative solutions
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="group relative card-glass overflow-hidden card-hover">
-                    <div class="h-48 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
-                        <img src="assets/DriverEasy Car Rental.png" alt="DriverEasy Car Rental App" 
-                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    </div>
-                    <div class="p-8">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold">DriverEasy Car Rental</h3>
-                            <span class="text-xs bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full">React</span>
-                        </div>
-                        <p class="text-slate-400 mb-6">
-                            Modern car rental platform with real-time booking system, payment integration, and admin dashboard.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex space-x-4">
-                                <a href="https://github.com/tgzgondoz/car-rental-app" target="_blank" 
-                                   class="text-slate-500 hover:text-white transition-colors duration-300">
-                                    <i class="fab fa-github text-xl"></i>
-                                </a>
-                                <a href="https://car-rental-app-xi-sage.vercel.app/" target="_blank" 
-                                   class="text-slate-500 hover:text-white transition-colors duration-300">
-                                    <i class="fas fa-external-link-alt text-xl"></i>
-                                </a>
-                            </div>
-                            <div class="text-slate-500 group-hover:text-blue-400 transition-colors">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="group relative card-glass overflow-hidden card-hover">
-                    <div class="h-48 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
-                        <img src="assets/Game Collection 2024.png" alt="Game Collection 2024" 
-                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    </div>
-                    <div class="p-8">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold">Game Collection 2024</h3>
-                            <span class="text-xs bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full">JavaScript</span>
-                        </div>
-                        <p class="text-slate-400 mb-6">
-                            Interactive game discovery platform with filtering, search functionality, and detailed game information.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex space-x-4">
-                                <a href="https://github.com/tgzgondoz/one-gondo" target="_blank" 
-                                   class="text-slate-500 hover:text-white transition-colors duration-300">
-                                    <i class="fab fa-github text-xl"></i>
-                                </a>
-                                <a href="https://one-gondo.vercel.app" target="_blank" 
-                                   class="text-slate-500 hover:text-white transition-colors duration-300">
-                                    <i class="fas fa-external-link-alt text-xl"></i>
-                                </a>
-                            </div>
-                            <div class="text-slate-500 group-hover:text-blue-400 transition-colors">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="group relative card-glass overflow-hidden card-hover">
-                    <div class="h-48 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
-                        <img src="assets/Personal Portfolio.png" alt="Portfolio Website" 
-                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    </div>
-                    <div class="p-8">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold">Developer Portfolio</h3>
-                            <span class="text-xs bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full">Next.js</span>
-                        </div>
-                        <p class="text-slate-400 mb-6">
-                            Modern portfolio website with dark mode, animations, and project showcase using cutting-edge technologies.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex space-x-4">
-                                <a href="https://github.com/tgzgondoz" target="_blank" 
-                                   class="text-slate-500 hover:text-white transition-colors duration-300">
-                                    <i class="fab fa-github text-xl"></i>
-                                </a>
-                                <a href="#home" 
-                                   class="text-slate-500 hover:text-white transition-colors duration-300">
-                                    <i class="fas fa-external-link-alt text-xl"></i>
-                                </a>
-                            </div>
-                            <div class="text-slate-500 group-hover:text-blue-400 transition-colors">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="block" id="contact">
+    <div class="contact">
+      <h2><em>~/</em>contact</h2>
+      <p class="sub" style="margin-bottom:0">Available for freelance projects and full-time roles. Email is the fastest way to reach me.</p>
+      <ul>
+        <li><b>email</b><a href="mailto:tgzgondozz@gmail.com">tgzgondozz@gmail.com</a></li>
+        <li><b>linkedin</b><a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" target="_blank" rel="noopener">linkedin.com/in/YOUR-LINKEDIN-HANDLE</a></li>
+        <li><b>github</b><a href="https://github.com/tgzgondoz" target="_blank" rel="noopener">github.com/tgzgondoz</a></li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gradient-to-b from-slate-900 to-slate-950">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold mb-6">Let's Connect</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto text-lg">
-                    Interested in collaborating? Let's create something amazing together
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                <!-- Contact Info -->
-                <div>
-                    <div class="card-glass p-8 card-hover mb-8">
-                        <h3 class="text-2xl font-bold mb-6 gradient-text">Get in Touch</h3>
-                        <p class="text-slate-300 mb-8">
-                            I'm currently available for freelance work and full-time opportunities. 
-                            Whether you have a project in mind or just want to connect, feel free to reach out.
-                        </p>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-center group">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center mr-4 group-hover:from-blue-600/30 group-hover:to-purple-600/30 transition-all duration-300">
-                                    <i class="fas fa-envelope text-blue-400 text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-lg">Email</h4>
-                                    <a href="mailto:tgzgondozz@gmail.com" class="text-slate-400 hover:text-white transition-colors">tgzgondozz@gmail.com</a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center group">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center mr-4 group-hover:from-blue-600/30 group-hover:to-purple-600/30 transition-all duration-300">
-                                    <i class="fab fa-linkedin-in text-purple-400 text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-lg">LinkedIn</h4>
-                                    <a href="#" class="text-slate-400 hover:text-white transition-colors">linkedin.com/in/tatendagondo</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/tgzgondoz" class="flex-1 card-glass p-4 text-center hover:bg-gradient-to-r hover:from-blue-600/10 hover:to-purple-600/10 transition-all duration-300 border border-transparent hover:border-blue-500/20">
-                            <i class="fab fa-github text-2xl mb-2 block"></i>
-                            <span class="text-sm">GitHub</span>
-                        </a>
-                        <a href="#" class="flex-1 card-glass p-4 text-center hover:bg-gradient-to-r hover:from-blue-600/10 hover:to-purple-600/10 transition-all duration-300 border border-transparent hover:border-blue-500/20">
-                            <i class="fab fa-twitter text-2xl mb-2 block"></i>
-                            <span class="text-sm">Twitter</span>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Contact Form -->
-                <div class="card-glass p-8 card-hover">
-                    <form class="space-y-6">
-                        <div>
-                            <label class="block text-slate-300 mb-2 font-medium">Your Name</label>
-                            <input type="text" 
-                                   class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                                   placeholder="Enter your name"
-                                   required>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-slate-300 mb-2 font-medium">Your Email</label>
-                            <input type="email" 
-                                   class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                                   placeholder="Enter your email"
-                                   required>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-slate-300 mb-2 font-medium">Message</label>
-                            <textarea 
-                                class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 h-32"
-                                placeholder="Tell me about your project..."
-                                required></textarea>
-                        </div>
-                        
-                        <button type="submit" 
-                                class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 group">
-                            <span class="flex items-center justify-center">
-                                Send Message 
-                                <i class="fas fa-paper-plane ml-3 group-hover:translate-x-1 transition-transform duration-300"></i>
-                            </span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+</main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 py-12 border-t border-slate-800">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-8 items-center mb-8">
-                <div>
-                    <div class="text-2xl font-bold mb-2">
-                        <span class="text-white">Tatenda</span>
-                        <span class="gradient-text">.</span>
-                    </div>
-                    <p class="text-slate-400 text-sm">
-                        Building exceptional digital experiences
-                    </p>
-                </div>
-                
-                <div class="flex justify-center space-x-8">
-                    <a href="#about" class="text-slate-400 hover:text-white hover:gradient-text transition-colors duration-300 font-medium">About</a>
-                    <a href="#projects" class="text-slate-400 hover:text-white hover:gradient-text transition-colors duration-300 font-medium">Projects</a>
-                    <a href="#contact" class="text-slate-400 hover:text-white hover:gradient-text transition-colors duration-300 font-medium">Contact</a>
-                </div>
-                
-                <div class="flex justify-center md:justify-end space-x-4">
-                    <a href="https://github.com/tgzgondoz" class="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 transition-all duration-300 border border-slate-700">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 transition-all duration-300 border border-slate-700">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 transition-all duration-300 border border-slate-700">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="border-t border-slate-800 pt-8 text-center">
-                <p class="text-slate-500 text-sm">
-                    &copy; 2025 Tatenda Gondo. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('hidden');
-        }
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobileMenu');
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-
-        // Particle effect for hero section
-        function createParticles() {
-            const container = document.getElementById('particles-container');
-            if (!container) return;
-            
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                // Random size
-                const size = Math.random() * 4 + 1;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Random position
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                // Random animation
-                const duration = Math.random() * 10 + 5;
-                const delay = Math.random() * 5;
-                particle.style.animation = `floating ${duration}s ease-in-out ${delay}s infinite`;
-                
-                container.appendChild(particle);
-            }
-        }
-
-        // Initialize particles
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            
-            // Add scroll animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -100px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Observe animated elements
-            document.querySelectorAll('.card-hover').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                observer.observe(el);
-            });
-        });
-
-        // Add typing effect
-        const typewriterText = "Frontend Developer & UI/UX Specialist";
-        const typewriterElement = document.querySelector('.typewriter-container p');
-        
-        if (typewriterElement) {
-            typewriterElement.innerHTML = '';
-            let i = 0;
-            const typeWriter = () => {
-                if (i < typewriterText.length) {
-                    typewriterElement.innerHTML += typewriterText.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 50);
-                }
-            };
-            setTimeout(typeWriter, 1000);
-        }
-    </script>
+<footer>&copy; <span id="yr">2026</span> Tatenda Gondo</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
 </html>
