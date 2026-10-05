@@ -75,8 +75,13 @@ h2 em{font-style:normal;color:var(--green)}
 .contact ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px;font:400 14.5px var(--mono)}
 .contact b{display:inline-block;min-width:92px;color:var(--muted);font-weight:400}
 footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:var(--muted)}
+/* Profile image enhancements */
+.profile-wrap{display:flex;align-items:center;gap:24px;margin-bottom:20px;flex-wrap:wrap}
+.profile-pic{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid var(--blue);box-shadow:0 8px 20px rgba(0,0,0,.4);background:var(--surface);transition:transform .2s ease}
+.profile-pic:hover{transform:scale(1.02)}
+.profile-text{flex:1}
 @media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:36px}.hero h1{font-size:36px}.nav nav{gap:14px;font-size:12.5px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.profile-pic{transition:none}}
 </style>
 </head>
 <body>
@@ -97,14 +102,20 @@ footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:v
 
   <section class="hero">
     <div>
-      <div class="status"><i></i>Open to freelance and full-time roles</div>
+      <!-- Profile image added here -->
+      <div class="profile-wrap">
+        <img class="profile-pic" src="https://ui-avatars.com/api/?name=Tatenda+Gondo&size=96&background=58a6ff&color=fff&bold=true&length=2" alt="Tatenda Gondo profile photo" loading="lazy">
+        <div class="profile-text">
+          <div class="status"><i></i>Open to freelance and full-time roles</div>
+        </div>
+      </div>
       <h1>Tatenda Gondo</h1>
       <p class="role">Frontend Developer</p>
       <p class="lead">I build fast, accessible web applications with React, Next.js and TypeScript. Based in Harare, Zimbabwe, working with teams and clients anywhere.</p>
       <div class="btns">
         <a class="btn primary" href="#projects">View projects</a>
         <a class="btn" href="https://github.com/tgzgondoz" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="www.linkedin.com/in/tatenda-gondo-5203651ab" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://www.linkedin.com/in/tatenda-gondo-5203651ab" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="assets/Tatenda-Gondo-CV.pdf" download>Download CV</a>
       </div>
     </div>
@@ -137,7 +148,7 @@ footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:v
 
   <section class="block" id="experience">
     <h2><em>~/</em>experience</h2>
-    <p class="sub">Hands‑on roles across frontend development and IT support.</p>
+    <p class="sub">Hands-on roles across frontend development and IT support.</p>
     <div class="tl">
       <article class="job">
         <div class="when" id="kiwa-duration">Apr 2026 – present</div>
@@ -150,13 +161,13 @@ footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:v
         <div class="when">Feb 2024 – Dec 2024 · 11 mos</div>
         <h3>Information Technology Intern</h3>
         <div class="org">Chinhoyi University of Technology · Internship</div>
-        <p>Provided on‑site IT support, maintained lab equipment, and assisted with network and software troubleshooting. Based in Chinhoyi, Mashonaland West.</p>
+        <p>Provided on-site IT support, maintained lab equipment, and assisted with network and software troubleshooting. Based in Chinhoyi, Mashonaland West.</p>
         <div class="chips"><span>IT Support</span><span>Networking</span><span>Hardware</span><span>Troubleshooting</span></div>
       </article>
       <article class="job">
         <div class="when">Mar 2021 – Nov 2025</div>
         <h3>Frontend Developer</h3>
-        <div class="org">Undergrade Student Chinhoyi University of Technology</div>
+        <div class="org">Undergraduate Student, Chinhoyi University of Technology</div>
         <p>Built responsive web applications and implemented UI components from design files, working closely with designers.</p>
         <div class="chips"><span>JavaScript</span><span>React</span><span>SCSS</span><span>Figma</span></div>
       </article>
@@ -209,7 +220,7 @@ footer{padding:44px 0 40px;text-align:center;font:400 12.5px var(--mono);color:v
       <p class="sub" style="margin-bottom:0">Available for freelance projects and full-time roles. Email is the fastest way to reach me.</p>
       <ul>
         <li><b>email</b><a href="mailto:tgzgondozz@gmail.com">tgzgondozz@gmail.com</a></li>
-        <li><b>linkedin</b><a href="www.linkedin.com/in/tatenda-gondo-5203651ab" target="_blank" rel="noopener">www.linkedin.com/in/tatenda-gondo-5203651ab</a></li>
+        <li><b>linkedin</b><a href="https://www.linkedin.com/in/tatenda-gondo-5203651ab" target="_blank" rel="noopener">linkedin.com/in/tatenda-gondo-5203651ab</a></li>
         <li><b>github</b><a href="https://github.com/tgzgondoz" target="_blank" rel="noopener">github.com/tgzgondoz</a></li>
       </ul>
     </div>
